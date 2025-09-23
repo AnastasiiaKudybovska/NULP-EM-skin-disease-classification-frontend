@@ -301,7 +301,7 @@ const HistoryPage = () => {
                 fontFamily: '"Inter", sans-serif'
               }}
             >
-              {t(`diagnostic:xaiMethods.diseaseLabels.${disease}`)}
+              {t(`diagnostic:diseaseLabels.${disease}`)}
             </MenuItem>
           ))}
         </Menu>

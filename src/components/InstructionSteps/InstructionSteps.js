@@ -9,9 +9,9 @@ const InstructionSteps = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   const stepImages = [
-    '/images/upload-step.jpeg',
-    '/images/analysis-step.jpg',
-    '/images/results-step.jpg'
+    '/images/upload-step-3.png',
+    '/images/analysis-step-3.png',
+    '/images/results-step-3.png'
   ];
 
   const steps = [
@@ -143,16 +143,19 @@ const InstructionSteps = () => {
           >
             <Box sx={{
               borderRadius: 2, overflow: 'hidden',
-              boxShadow: theme.shadows[3],
-              width: '100%',
-              aspectRatio: '16/12'
+              // aspectRatio: '16/12',
+              display: 'inline-block'
             }}>
               <Box
                 component="img"
                 src={stepImages[activeStep]}
                 alt={steps[activeStep].label}
-                sx={{  width: '100%', height: '100%', objectFit: 'cover', }}
-              />
+                sx={{ 
+                width: '100%',
+                height: 'auto',   
+                display: 'block', 
+              }}
+              />dcs 
             </Box>
           </motion.div>
         </Box>
