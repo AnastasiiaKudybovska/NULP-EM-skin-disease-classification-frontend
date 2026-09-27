@@ -4,7 +4,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      REACT_APP_API_BASE_URL: http://localhost:8000
+      REACT_APP_API_BASE_URL: http://localhost:${API_PORT:-8000}
       HOST: 0.0.0.0
     depends_on:
       - api
@@ -13,10 +13,13 @@ services:
     platform: linux/amd64
     build: ../NULP-EM-skin-disease-classification-backend
     ports:
-      - "8000:8000"
+      - "${API_PORT:-8000}:8000"
     environment:
       MONGODB_URL: mongodb://mongo:27017
       SECRET_KEY: ${SECRET_KEY:-local-poc-secret-change-me}
+    volumes:
+      - ../NULP-EM-skin-disease-classification-backend/app/classification_models:/app/app/classification_models:ro
+      - ../NULP-EM-skin-disease-classification-backend/app/segmentation_models:/app/app/segmentation_models:ro
     depends_on:
       mongo:
         condition: service_healthy
